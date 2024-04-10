@@ -1,0 +1,18 @@
+@font-face {
+  font-family: "Gotham";
+  src: url("../Assets/fonts/Gotham-Book.otf") format("opentype");
+
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Gotham";
+  src: url("../Assets/fonts/Gotham-Medium.otf") format("opentype");
+
+  font-weight: 600;
+  font-style: normal;
+}
+
+body {
+  font-family: "Gotham", monospace, serif;
+}

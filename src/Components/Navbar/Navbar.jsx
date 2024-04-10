@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Navbar.scss";
 import Logo from "../Logo/Logo";
 import Hamburger from "../Hamburger/Hamburger";
+import { Link } from "react-router-dom";
 
 export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
@@ -21,9 +22,15 @@ export default function Navbar() {
         </div>
         <div className={`nav-elements  ${showNavbar && "active"}`}>
           <ul>
-            <li>Home</li>
-            <li>Anime</li>
-            <li>Recommendations</li>
+            <Link to={"/"}>
+              <li>Home</li>
+            </Link>
+            <Link to={"/anime"}>
+              <li>Anime</li>
+            </Link>
+            <Link to={"/recommendations"}>
+              <li>Recommendations</li>
+            </Link>
           </ul>
         </div>
       </div>

@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import PromptBox from "./Components/PromptBox/PromptBox";
 import RecommendationsPage from "./Pages/RecommendationsPage/RecommendationsPage";
 import Navbar from "./Components/Navbar/Navbar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.scss";
+import AnimeDetailsPage from "./Pages/AnimeDetailsPage/AnimeDetailsPage";
+import AnimePage from "./Pages/AnimePage/AnimePage";
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -193,20 +197,33 @@ function App() {
 
   return (
     <>
-      <Navbar />
-      <div className="chat">
-        <PromptBox
-          onChange={handleDropdownChange}
-          selectedOption={selectedOption}
-        />
-        <div className="content">
-          <RecommendationsPage
-            recommendedAnimeResponse={userResponse}
-            recommendedAnimeData={urlResponse}
-            onChange={handleDropdownChange}
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <PromptBox
+                onChange={handleDropdownChange}
+                selectedOption={selectedOption}
+              />
+            }
           />
-        </div>
-      </div>
+
+          <Route
+            path="/recommendations"
+            element={
+              <RecommendationsPage
+                recommendedAnimeResponse={userResponse}
+                recommendedAnimeData={urlResponse}
+                onChange={handleDropdownChange}
+              />
+            }
+          />
+          <Route path="/anime" element={<AnimePage />} />
+          <Route path="/anime/:animeid" element={<AnimeDetailsPage />} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

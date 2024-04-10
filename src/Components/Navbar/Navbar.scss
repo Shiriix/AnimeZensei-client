@@ -26,6 +26,7 @@
   display: flex;
   justify-content: space-between;
   list-style-type: none;
+  gap: 4rem;
 }
 
 .nav-elements ul li:not(:last-child) {

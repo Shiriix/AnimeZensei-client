@@ -1,4 +1,6 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
+
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
@@ -7,16 +9,24 @@ import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import axios from "axios";
 
-export default function RecommendationsPage({ recommendedAnime }) {
-  const [renderRecommendedAnime, setRenderRecommendedAnime] =
-    React.useState(null);
+export default function RecommendationsPage({
+  recommendedAnimeResponse,
+  recommendedAnimeData,
+  onChange,
+}) {
+  const [renderRecommendedAnime, setRenderRecommendedAnime] = useState(null);
 
-  const MALapiURL = "https://api.jikan.moe/v4/anime";
+  const MALapiURL = `https://api.jikan.moe/v4/anime/${recommendedAnimeData
+    .trim()
+    .replace(")", "")}`;
 
   const handleRecommendedAnime = async () => {
+    if (!recommendedAnimeData) {
+      return;
+    }
     try {
-      const response = await axios.get();
-      setRenderRecommendedAnime();
+      const { data } = await axios.get(MALapiURL);
+      setRenderRecommendedAnime(data.data);
 
       return;
     } catch (error) {
@@ -24,14 +34,28 @@ export default function RecommendationsPage({ recommendedAnime }) {
     }
   };
 
+  useEffect(() => {
+    handleRecommendedAnime();
+  }, [onChange]);
+
   return (
     <>
       <Card sx={{ maxWidth: 345 }}>
-        <CardMedia sx={{ height: 140 }} image="" title="" />
+        <CardMedia
+          sx={{ height: "30rem" }}
+          image={
+            renderRecommendedAnime &&
+            renderRecommendedAnime.images.jpg.image_url
+          }
+          title=""
+        />
         <CardContent>
-          <Typography gutterBottom variant="h5" component="div"></Typography>
+          <Typography gutterBottom variant="h5" component="div">
+            {" "}
+            {recommendedAnimeResponse}
+          </Typography>
           <Typography variant="body2" color="text.secondary">
-            {recommendedAnime}
+            {renderRecommendedAnime && renderRecommendedAnime.synopsis}
           </Typography>
         </CardContent>
         <CardActions>

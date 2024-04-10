@@ -1,22 +1,13 @@
 import React, { useState } from "react";
 
-const PromptBox = ({ onSend }) => {
-  const [selectedOption, setSelectedOption] = useState("");
-
-  const handleDropdownChange = async (event) => {
-    const selectedValue = event.target.value;
-    setSelectedOption(selectedValue);
-
-    await onSend(selectedValue);
-  };
-
+const PromptBox = ({ selectedOption, onChange }) => {
   return (
     <>
       <form className="form">
         <div className="form__div">
           <select
             value={selectedOption}
-            onChange={handleDropdownChange}
+            onChange={onChange}
             className="form__dropdown"
           >
             <option value="">Select...</option>

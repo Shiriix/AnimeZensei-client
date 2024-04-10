@@ -6,6 +6,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.scss";
 import AnimeDetailsPage from "./Pages/AnimeDetailsPage/AnimeDetailsPage";
 import AnimePage from "./Pages/AnimePage/AnimePage";
+import animeArrayData from "./data/savedAnimes.json";
 
 function App() {
   const apiKey = process.env.REACT_APP_API_KEY;
@@ -13,6 +14,7 @@ function App() {
   const [userResponse, setUserResponse] = useState("");
   const [urlResponse, setURLResponse] = useState("");
   const [selectedOption, setSelectedOption] = useState("");
+  const [animeArray, setAnimeArray] = useState(animeArrayData);
 
   const handleDropdownChange = async (event) => {
     const selectedValue = event.target.value;
@@ -20,129 +22,6 @@ function App() {
 
     await handleSendRequest(selectedValue);
   };
-
-  const animeArray = [
-    {
-      title: "Attack on Titan",
-
-      id: 16498,
-    },
-    {
-      title: "Naruto",
-
-      id: 20,
-    },
-    {
-      title: "One Punch Man",
-
-      id: 30276,
-    },
-    {
-      title: "Trigun",
-
-      id: 6,
-    },
-    {
-      title: "My Hero Academia",
-
-      id: 31964,
-    },
-    {
-      title: "Perfect Blue",
-
-      id: 437,
-    },
-    {
-      title: "Blue Lagoon",
-
-      id: 889,
-    },
-    {
-      title: "Samurai Champloo",
-
-      id: 205,
-    },
-    {
-      title: "Kimba the White Lion",
-
-      id: 1572,
-    },
-    {
-      title: "Afro Samurai",
-
-      id: 1292,
-    },
-    {
-      title: "Baccano!",
-
-      id: 2251,
-    },
-    {
-      title: "Your Lie in April",
-
-      id: 23273,
-    },
-    {
-      title: "A Place Further than the Universe",
-
-      id: 35839,
-    },
-    {
-      title: "Princess Mononoke",
-
-      id: 164,
-    },
-    {
-      title: "Hunter x Hunter",
-
-      id: 11061,
-    },
-    {
-      title: "Full Metal Alchemist: Brotherhood",
-
-      id: 5114,
-    },
-    {
-      title: "Jujutsu Kaisen",
-
-      id: 40748,
-    },
-    {
-      title: "Violet Evergarden",
-
-      id: 33352,
-    },
-    {
-      title: "Cowboy Bebop:",
-
-      id: 1,
-    },
-    {
-      title: "Beastars",
-
-      id: 39195,
-    },
-    {
-      title: "Grave of the Fireflies",
-
-      id: 578,
-    },
-    {
-      title: "Gungrave",
-
-      id: 267,
-    },
-    {
-      title: "Gurren Lagann",
-
-      id: 2001,
-    },
-    {
-      title: "A Lull in the Sea",
-
-      id: 16067,
-    },
-  ];
 
   useEffect(() => {
     if (content) {
@@ -198,7 +77,7 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Navbar />
+        <Navbar animeArray={animeArray} />
         <Routes>
           <Route
             path="/"

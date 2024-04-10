@@ -2,10 +2,12 @@ import { useState } from "react";
 import "./Navbar.scss";
 import Logo from "../Logo/Logo";
 import Hamburger from "../Hamburger/Hamburger";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-export default function Navbar() {
+export default function Navbar({ animeArray }) {
   const [showNavbar, setShowNavbar] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);

@@ -1,0 +1,198 @@
+:root {
+  --red: #d52b21;
+  --orange: #ffa500;
+  --main-bg: #3b3b4f;
+  --stroke-color: #2e2141;
+  --rays-light: var(--orange);
+  --rays-dark: var(--red);
+  --polka-dots: var(--stroke-color);
+  --polka-bg: var(--main-bg);
+}
+
+.simple-bubble {
+  min-width: 300px;
+  min-height: 225px;
+
+  &__text {
+    margin-left: 0.2rem;
+    font-size: 1.3rem;
+  }
+
+  &__img {
+    width: 22%;
+    border-radius: 4rem;
+  }
+
+  &__main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 350px;
+    height: 220px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    border: 5px solid var(--stroke-color);
+    font-size: 2rem;
+  }
+
+  &__tail {
+    width: 100px;
+    height: 50px;
+    margin: -5px auto 0;
+    background: radial-gradient(
+      circle at 0 0,
+      transparent 0%,
+      transparent 46%,
+      rgba(255, 255, 255, 1) 46%
+    );
+    border: 5px solid var(--stroke-color);
+    border-top: none;
+    border-left: none;
+    border-radius: 0 10% 100% 0;
+    transform: rotate(-7deg);
+
+    &::before {
+      content: "";
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin-bottom: -5px;
+      background-color: transparent;
+      border: 5px solid var(--stroke-color);
+      border-top: none;
+      border-left: none;
+      border-radius: 0 10% 200% 0;
+    }
+  }
+}
+.section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 30px;
+  gap: 2rem;
+}
+
+.section--rays {
+  position: relative;
+
+  &::before,
+  &::after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(75deg, transparent 50%, var(--rays-light) 50%),
+      linear-gradient(60deg, transparent 50%, var(--rays-dark) 50%),
+      linear-gradient(45deg, transparent 50%, var(--rays-light) 50%),
+      linear-gradient(30deg, transparent 50%, var(--rays-dark) 50%),
+      linear-gradient(15deg, transparent 50%, var(--rays-light) 50%),
+      linear-gradient(0deg, transparent 50%, var(--rays-dark) 50%),
+      linear-gradient(-15deg, transparent 50%, var(--rays-light) 50%),
+      linear-gradient(-30deg, transparent 50%, var(--rays-dark) 50%),
+      linear-gradient(-45deg, transparent 50%, var(--rays-light) 50%),
+      linear-gradient(-60deg, transparent 50%, var(--rays-dark) 50%),
+      linear-gradient(-75deg, transparent 50%, var(--rays-light) 50%),
+      linear-gradient(-90deg, transparent 50%, var(--rays-dark) 50%);
+    background-size: 200% 100%;
+    z-index: -1;
+  }
+
+  &::after {
+    left: auto;
+    right: 0;
+    transform: rotate(180deg);
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  &__div {
+    margin-bottom: 20px;
+
+    .form__dropdown {
+      width: 200px;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      outline: none;
+      appearance: none;
+      background-color: #f8f9fa;
+      transition: border-color 0.3s ease;
+
+      &:hover {
+        border-color: #007bff;
+      }
+
+      &:focus {
+        border-color: #007bff;
+      }
+    }
+  }
+
+  &__button {
+    padding: 12px 24px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: #0056b3;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.form__div {
+  animation: slideInFromLeft 0.5s ease 0.3s forwards;
+}
+
+.form__button {
+  animation: slideInFromRight 0.5s ease 0.5s forwards;
+}

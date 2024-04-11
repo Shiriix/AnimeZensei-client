@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import PromptBox from "./Components/PromptBox/PromptBox";
 import RecommendationsPage from "./Pages/RecommendationsPage/RecommendationsPage";
 import Navbar from "./Components/Navbar/Navbar";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import "./App.scss";
 import AnimeDetailsPage from "./Pages/AnimeDetailsPage/AnimeDetailsPage";
 import AnimePage from "./Pages/AnimePage/AnimePage";

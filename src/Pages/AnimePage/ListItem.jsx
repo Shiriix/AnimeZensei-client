@@ -30,6 +30,7 @@ export default function ListItem({ id }) {
   return (
     <li className="anime__list-item" key={anime.id}>
       <div className="anime__list-details">
+        <img src={anime.images.jpg.image_url} alt="anime poster" />
         <h3
           className="anime__list-name"
           //   onClick={() => {

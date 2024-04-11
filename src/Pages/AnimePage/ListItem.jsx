@@ -1,5 +1,11 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 export default function ListItem({ id }) {
   const [anime, setAnime] = useState(null);
@@ -28,18 +34,19 @@ export default function ListItem({ id }) {
   console.log(anime);
 
   return (
-    <li className="anime__list-item" key={anime.id}>
-      <div className="anime__list-details">
-        <img src={anime.images.jpg.image_url} alt="anime poster" />
-        <h3
-          className="anime__list-name"
-          //   onClick={() => {
-          //     nav(`/anime/${anime.id}`);
-          //   }}
-        >
-          {anime.title}
-        </h3>
-      </div>
-    </li>
+    <>
+      <Card sx={{ maxWidth: 345 }}>
+        <CardMedia
+          sx={{ height: "31rem" }}
+          image={anime.images.jpg.image_url}
+        />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {" "}
+            {anime.title}
+          </Typography>
+        </CardContent>
+      </Card>
+    </>
   );
 }

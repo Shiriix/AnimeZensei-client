@@ -10,6 +10,7 @@ import "slick-carousel/slick/slick-theme.css";
 
 export default function AnimePage() {
   const settings = {
+    dots: true,
     autoplay: true,
     autoplaySpeed: 800,
     infinite: true,

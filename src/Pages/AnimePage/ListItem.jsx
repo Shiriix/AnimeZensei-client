@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
-import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import "./ListItem.scss";
 
-export default function ListItem({ id }) {
+export default function ListItem({ id, addSynopsis }) {
   const [anime, setAnime] = useState(null);
+
   const MALapiURL = "https://api.jikan.moe/v4/anime/";
 
   const fetchAnime = async (id) => {
@@ -34,10 +34,10 @@ export default function ListItem({ id }) {
   console.log(anime);
 
   return (
-    <>
+    <div className="carousel">
       <Card sx={{ maxWidth: 345 }}>
         <CardMedia
-          sx={{ height: "31rem" }}
+          sx={{ height: "30rem" }}
           image={anime.images.jpg.image_url}
         />
         <CardContent>
@@ -47,6 +47,7 @@ export default function ListItem({ id }) {
           </Typography>
         </CardContent>
       </Card>
-    </>
+      {addSynopsis && <p className="carousel__synopsis">{anime.synopsis}</p>}
+    </div>
   );
 }

@@ -73,40 +73,43 @@
   height: 100vh;
   padding: 30px;
   gap: 2rem;
-}
 
-.section--rays {
-  position: relative;
-
-  &::before,
-  &::after {
-    content: "";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 50%;
-    height: 100%;
-    background: linear-gradient(75deg, transparent 50%, var(--rays-light) 50%),
-      linear-gradient(60deg, transparent 50%, var(--rays-dark) 50%),
-      linear-gradient(45deg, transparent 50%, var(--rays-light) 50%),
-      linear-gradient(30deg, transparent 50%, var(--rays-dark) 50%),
-      linear-gradient(15deg, transparent 50%, var(--rays-light) 50%),
-      linear-gradient(0deg, transparent 50%, var(--rays-dark) 50%),
-      linear-gradient(-15deg, transparent 50%, var(--rays-light) 50%),
-      linear-gradient(-30deg, transparent 50%, var(--rays-dark) 50%),
-      linear-gradient(-45deg, transparent 50%, var(--rays-light) 50%),
-      linear-gradient(-60deg, transparent 50%, var(--rays-dark) 50%),
-      linear-gradient(-75deg, transparent 50%, var(--rays-light) 50%),
-      linear-gradient(-90deg, transparent 50%, var(--rays-dark) 50%);
-    background-size: 200% 100%;
-    z-index: -1;
+  &--fade-in {
+    animation: fadeIn 0.5s ease-in-out;
   }
+  &--rays {
+    position: relative;
 
-  &::after {
-    left: auto;
-    right: 0;
-    transform: rotate(180deg);
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(75deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(60deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(45deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(30deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(15deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(0deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(-15deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(-30deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(-45deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(-60deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(-75deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(-90deg, transparent 50%, var(--rays-dark) 50%);
+      background-size: 200% 100%;
+      z-index: -1;
+    }
+
+    &::after {
+      left: auto;
+      right: 0;
+      transform: rotate(180deg);
+    }
   }
 }
 
@@ -117,6 +120,7 @@
 
   &__div {
     margin-bottom: 20px;
+    animation: slideInFromLeft 0.5s ease 0.3s forwards;
 
     .form__dropdown {
       width: 200px;
@@ -149,6 +153,7 @@
     cursor: pointer;
     text-decoration: none;
     transition: background-color 0.3s;
+    animation: slideInFromRight 0.5s ease 0.5s forwards;
 
     &:hover {
       background-color: #0056b3;
@@ -187,12 +192,4 @@
     opacity: 1;
     transform: translateX(0);
   }
-}
-
-.form__div {
-  animation: slideInFromLeft 0.5s ease 0.3s forwards;
-}
-
-.form__button {
-  animation: slideInFromRight 0.5s ease 0.5s forwards;
 }

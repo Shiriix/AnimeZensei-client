@@ -6,7 +6,7 @@ import "./PromptBox.scss";
 const PromptBox = ({ selectedOption, onChange }) => {
   return (
     <>
-      <section className="section section--rays">
+      <section className="section  section--fade-in section--rays">
         <div className="simple-bubble">
           <div className="simple-bubble__main">
             <img className="simple-bubble__img" src={rikka} alt="rikka gif" />

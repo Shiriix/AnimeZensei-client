@@ -6,6 +6,7 @@
   justify-content: space-between;
   align-items: center;
   height: 100%;
+  font-family: "Ninja Naruto Regular";
 }
 
 .navbar {
@@ -18,8 +19,10 @@
   display: none;
 }
 
-.logo {
+.logo a {
   display: flex;
+  color: #2f234f;
+  text-decoration: none;
 }
 
 .nav-elements ul {

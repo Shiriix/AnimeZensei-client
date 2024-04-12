@@ -16,8 +16,7 @@ export default function AnimePage() {
 
   const settings = {
     dots: true,
-    autoplay: true,
-    autoplaySpeed: 1000,
+
     infinite: true,
     speed: 500,
     slidesToShow: 5,
@@ -37,26 +36,28 @@ export default function AnimePage() {
 
   return (
     <>
-      <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
-        {animeArray.map((anime) => {
-          return <ListItem key={anime.id} id={anime.id} addSynopsis={true} />;
-        })}
-      </Slider>
-      <Divider></Divider>
-      <div className="animepage__slider-bottom">
-        <Slider
-          {...settings}
-          asNavFor={nav1}
-          ref={(slider2) => setNav2(slider2)}
-          swipeToSlide={true}
-          focusOnSelect={true}
-          slidesToShow={3}
-        >
+      <section class="section--polka">
+        <Slider asNavFor={nav2} ref={(slider1) => setNav1(slider1)}>
           {animeArray.map((anime) => {
-            return <ListItem key={anime.id} id={anime.id} />;
+            return <ListItem key={anime.id} id={anime.id} addSynopsis={true} />;
           })}
         </Slider>
-      </div>
+        <Divider></Divider>
+        <div className="animepage__slider-bottom">
+          <Slider
+            {...settings}
+            asNavFor={nav1}
+            ref={(slider2) => setNav2(slider2)}
+            swipeToSlide={true}
+            focusOnSelect={true}
+            slidesToShow={3}
+          >
+            {animeArray.map((anime) => {
+              return <ListItem key={anime.id} id={anime.id} />;
+            })}
+          </Slider>
+        </div>
+      </section>
     </>
   );
 }

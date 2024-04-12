@@ -17,7 +17,9 @@ export default function Navbar({ animeArray }) {
     <nav className="navbar">
       <div className="container">
         <div className="logo">
-          <Logo />
+          <Link to={"/"}>
+            <Logo />
+          </Link>
         </div>
         <div className="menu-icon" onClick={handleShowNavbar}>
           <Hamburger />

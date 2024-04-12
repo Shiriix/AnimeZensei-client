@@ -13,6 +13,14 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Ninja Naruto Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../Assets/fonts/ninja-naruto_woff/ninja-naruto.regular.woff")
+    format("woff");
+}
+
 body {
   font-family: "Gotham", monospace, serif;
 }

@@ -21,6 +21,19 @@
     format("woff");
 }
 
+@font-face {
+  font-family: "Dimitri Inverse";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../Assets/fonts/dimitri_woff/dimitri-inverse.woff") format("woff");
+}
+@font-face {
+  font-family: "Dimitri Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../Assets/fonts/dimitri_woff/dimitri.woff") format("woff");
+}
+
 body {
   font-family: "Gotham", monospace, serif;
 }

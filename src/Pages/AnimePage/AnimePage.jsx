@@ -8,7 +8,6 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "./AnimePage.scss";
-import Divider from "@mui/material/Divider";
 
 export default function AnimePage() {
   const [nav1, setNav1] = useState();
@@ -26,8 +25,6 @@ export default function AnimePage() {
 
   const nav = useNavigate();
 
-  const MALapiURL = "https://api.jikan.moe/v4/anime/";
-
   console.log(animeArray);
 
   if (animeArray.length < 0) {
@@ -42,7 +39,7 @@ export default function AnimePage() {
             return <ListItem key={anime.id} id={anime.id} addSynopsis={true} />;
           })}
         </Slider>
-        <Divider></Divider>
+
         <div className="animepage__slider-bottom">
           <Slider
             {...settings}

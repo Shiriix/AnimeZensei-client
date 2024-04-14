@@ -40,10 +40,20 @@ export default function ListItem({ id, addSynopsis }) {
           sx={{ height: "30rem" }}
           image={anime.images.jpg.image_url}
         />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="div">
+        <CardContent
+          sx={{
+            paddingBottom: "0px",
+            padding: "0px",
+          }}
+        >
+          <Typography
+            gutterBottom
+            variant="h5"
+            component="div"
+            sx={{ fontFamily: "Dimitri Inverse", marginBottom: "0rem" }}
+          >
             {" "}
-            {anime.title}
+            {anime.title_english}
           </Typography>
         </CardContent>
       </Card>

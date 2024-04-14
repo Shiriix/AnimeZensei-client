@@ -1,0 +1,60 @@
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.section__recommendations {
+  height: 110vh;
+  padding: 30px;
+  gap: 2rem;
+
+  &--card {
+    margin-top: 1rem;
+  }
+}
+
+.section {
+  &--fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+  &--rays {
+    position: relative;
+
+    &::before,
+    &::after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(75deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(60deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(45deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(30deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(15deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(0deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(-15deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(-30deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(-45deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(-60deg, transparent 50%, var(--rays-dark) 50%),
+        linear-gradient(-75deg, transparent 50%, var(--rays-light) 50%),
+        linear-gradient(-90deg, transparent 50%, var(--rays-dark) 50%);
+      background-size: 200% 100%;
+      z-index: -1;
+    }
+
+    &::after {
+      left: auto;
+      right: 0;
+      transform: rotate(180deg);
+    }
+  }
+}

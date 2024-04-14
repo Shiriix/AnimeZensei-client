@@ -1,70 +1,106 @@
-# Getting Started with Create React App
+# Project Title
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Overview
 
-## Available Scripts
+An app that recommends anime based on other media the user likes.
 
-In the project directory, you can run:
+### Problem
 
-### `npm start`
+Why is your app needed? Background information around any pain points or other reasons.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+When i usually mention anime to someone i am met with the response "I want to get into anime but i dont know where to start". This app will resolve this by giving the user an anime they may like.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### User Profile
 
-### `npm test`
+Who will use your app? How will they use it? Any special considerations that your app must take into account.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+People who want to get into anime would use the app as well as people who want to search for new anime shows.
 
-### `npm run build`
+### Features
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+AI PrompPage, Users select their favourite movie from the dropdown list.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+A page that displays all the available anime in the Array, Displays data from the Jikan API.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Recommendations, Displays the reommendations given by the AI from the users input.
 
-### `npm run eject`
+List the functionality that your app will include. These can be written as user stories or descriptions with related details. Do not describe _how_ these features are implemented, only _what_ needs to be implemented.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Implementation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Tech Stack
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+List technologies that will be used in your app, including any libraries to save time or provide more functionality. Be sure to research any potential limitations.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Material UI
+SCSS
+React
 
-## Learn More
+### APIs
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+List any external sources of data that will be used in your app.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Open AI - Takes the favourite video from the front end and comes up with an equivalent Anime movie which is returns
 
-### Code Splitting
+Jikan API - Takes the OpenAI returned movie and searches for it, returns the detailed Anime movie information
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Sitemap
 
-### Analyzing the Bundle Size
+List the pages of your app with brief descriptions. You can show this visually, or write it out.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Homepage - Will welcome the user (?) to the sign and ask for a prompt as to what media they like.
 
-### Making a Progressive Web App
+Anime list page - a page with all the best anime and most popular anime at the moment that comes from the JSON array.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Recommendation page - a page with the recommendations that the user got from the initial prompt.
 
-### Advanced Configuration
+### Mockups
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Provide visuals of your app's screens. You can use tools like Figma or pictures of hand-drawn sketches.
 
-### Deployment
+### Data
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+No database
 
-### `npm run build` fails to minify
+Describe your data and the relationships between them. You can show this visually using diagrams, or write it out.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Endpoints
+
+List endpoints that your server will implement, including HTTP methods, parameters, and example responses.
+
+/ - Homepage
+
+/anime
+
+/recommendations
+
+/anime/:animeID - a specific anime based on ID or name (Clicking on one of the movies from the Anime or recommendations page) ------ this is part of the nice-to-have-plans
+
+/anime/:animeID/reviews ----- this one is part of the nice-to-have plans
+
+### Auth
+
+No Authentication by default might be added as a potential feature after other features are made.
+
+## Roadmap
+
+Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build.
+
+By Demo Day have implemented some of my nice to haves:
+
+Would like to have authentication and a Users table.
+
+## Nice-to-haves
+
+Your project will be marked based on what you committed to in the above document. Under nice-to-haves, you can list any additional features you may complete if you have extra time, or after finishing.
+
+Log-in feature for exisiting users to save their recommendations.
+
+A review system
+
+authentication
+
+a review page
+
+database with users table, and a table that holds the users recommendations so they can be revisited on future logins
+Co
